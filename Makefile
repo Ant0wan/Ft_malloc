@@ -36,5 +36,5 @@ help:
 	-@echo "ctags:   generate Vim tags"
 
 tests: all
-	$(CC) -o main main.c -L. -lft_malloc -Wl,-rpath=.
-	./main
+	$(CC) main.c -L. -lft_malloc -Wl,-rpath=.
+	./a.out
