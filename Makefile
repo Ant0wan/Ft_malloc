@@ -34,3 +34,7 @@ help:
 	-@echo "clean:   delete object files"
 	-@echo "fclean:  execute make clean and delete shared library"
 	-@echo "ctags:   generate Vim tags"
+
+tests: all
+	$(CC) -o main main.c -L. -lft_malloc -Wl,-rpath=.
+	./main
