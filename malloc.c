@@ -1,4 +1,5 @@
-#include <search.h>
+//#include <search.h>
+#include <unistd.h>
 
 #include "malloc.h"
 
