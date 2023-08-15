@@ -24,7 +24,7 @@ fclean: clean
 	rm -f ${NAME}
 
 format:
-	clang-format -i --assume-filename=.clang-format --extensions=c,h
+	clang-format -i --assume-filename=.clang-format --files=*.c,*.h
 
 ctags:
 	ctags -R *
