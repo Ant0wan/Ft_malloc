@@ -18,10 +18,10 @@ ${NAME}: ${OBJS}
 	$(LD) $(LDFLAGS) -o $@ $(OBJS)
 
 clean:
-	rm -f ${OBJS} ${DEPS}
+	$(RM) -f ${OBJS} ${DEPS}
 
 fclean: clean
-	rm -f ${NAME}
+	$(RM) -f ${NAME}
 
 format:
 	clang-format -i --assume-filename=.clang-format *.c *.h
@@ -34,6 +34,7 @@ help:
 	-@echo "clean:   delete object files"
 	-@echo "fclean:  execute make clean and delete shared library"
 	-@echo "ctags:   generate Vim tags"
+	-@echo "tests:   execute tests"
 
 tests: all
 	$(CC) main.c -L. -lft_malloc -Wl,-rpath=.
