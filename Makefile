@@ -18,10 +18,12 @@ ${NAME}: ${OBJS}
 	$(LD) $(LDFLAGS) -o $@ $(OBJS)
 
 clean:
-	$(RM) -f ${OBJS} ${DEPS}
+	$(RM) ${OBJS} ${DEPS}
 
 fclean: clean
-	$(RM) -f ${NAME}
+	$(RM) ${NAME}
+	$(RM) a.out
+	$(RM) $(shell ls callgrind.out.*)
 
 format:
 	clang-format -i --assume-filename=.clang-format *.c *.h
@@ -39,3 +41,7 @@ help:
 tests: all
 	$(CC) main.c -L. -lft_malloc -Wl,-rpath=.
 	./a.out
+
+benchmark: all
+	$(CC) main.c -L. -lft_malloc -Wl,-rpath=.
+	valgrind --tool=callgrind ./a.out
