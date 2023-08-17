@@ -22,8 +22,7 @@ clean:
 
 fclean: clean
 	$(RM) ${NAME}
-	$(RM) a.out
-	$(RM) $(shell ls callgrind.out.*)
+	$(RM) a.out $(shell ls callgrind.out.*)
 
 format:
 	clang-format -i --assume-filename=.clang-format *.c *.h
